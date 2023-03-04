@@ -1,0 +1,82 @@
+<!--index.ejs-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="favicon.jpg" type="image/x-icon">
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>nodejs cloud demonstration</title>
+    </head>
+    <body>
+        <h1>product list</h1>
+        <p>add a new product</p>
+        <form action="/products" method="POST">
+            <input type="text" placeholder="product name" name="productName">
+            <input type="number" placeholder="price" name="price">
+            <button type="submit">submit</button>
+        </form>
+        
+        <!--search bar-->
+        <div class="searchBar">
+            <span><p>search a product</p></span>
+
+            <input type="text" placeholder="Search.." name="searchQuery">
+            <button onclick="getSearchQuery()"><i class="fa fa-search"></i></a></button>
+
+            <script>
+                var searchQuery = null;
+                function getSearchQuery() {
+                    searchQuery = document.getElementsByName("searchQuery").value;
+                }
+            </script>
+        </div>
+
+        <!--product list-->
+        <table class="product">
+            <tr>
+                <th>product ID</th>
+                <th>Product name</th>
+                <th>product price</th>
+            </tr>
+                <script>
+                    function checkSearch(){
+                        if(searchQuery == null) {
+                            return false;
+                        }
+                        else {
+                            return true;
+                        }
+                    }
+                </script>
+                <% var searchQuery = "<script>document.writeln(checkSearch())</script>";
+                if(searchQuery == null){ %>
+                    <% for(var i = 0; i < products.length; i++) {%>
+                    <tr class="product">
+                        <td class="product"><%= products[i]._id %></td>
+    
+                        <td class="product"><%= products[i].productName %></td>
+                        
+                        <td class="product"><%= products[i].price %></td>
+                    </tr>
+                    <% }
+                } else {
+                    for(var i = 0; i < products.length; i++) {
+                        id = products[i]._id;
+                        productName = products[i].productName;
+                        price = products[i].price;
+                        if(id==searchQuery || productName==searchQuery || price==searchQuery) { %>
+                        <tr class="product">
+                            <td class="product"><%= products[i]._id %></td>
+        
+                            <td class="product"><%= products[i].productName %></td>
+                            
+                            <td class="product"><%= products[i].price %></td>
+                        </tr>
+                        <% } %>
+                    <% } %>
+                <% } %>
+        </table>
+    </body>
+</html>

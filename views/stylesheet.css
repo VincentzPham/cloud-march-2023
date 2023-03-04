@@ -1,0 +1,17 @@
+table.product{
+    border: 2px solid black;
+}
+th{
+    border: 1px solid black;
+    text-align: center;
+}
+td{
+    border: 1px solid black;
+    padding: 5px;
+    text-align: right;
+}
+searchBar{
+    padding: 6px;
+    font-size: 17px;
+    border: 2px solid lightgrey; 
+}
