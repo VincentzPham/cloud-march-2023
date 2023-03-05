@@ -13,8 +13,9 @@
         <h1>product list</h1>
         <p>add a new product</p>
         <form action="/products" method="POST">
-            <input type="text" placeholder="product name" name="productName">
-            <input type="number" placeholder="price" name="price">
+            <input type="text" placeholder="store location" name="storeLocation">
+            <input type="date" name="month">
+            <input type="number" placeholder="total revenue" name="totalRevenue">
             <button type="submit">submit</button>
         </form>
         
@@ -28,16 +29,18 @@
         <!--product list-->
         <table class="product">
             <tr>
-                <th>product ID</th>
-                <th>Product name</th>
-                <th>product price</th>
+                <th>record ID</th>
+                <th>store location</th>
+                <th>month</th>
+                <th>total revenue</th>
             </tr>
             
             <% for(var i = 0; i < products.length; i++) { %>
                 <tr class="product">
                     <td class="product"><%= products[i]._id %></td>
-                    <td class="product"><%= products[i].productName %></td>
-                   <td class="product"><%= products[i].price %></td>
+                    <td class="product"><%= products[i].storeLocation %></td>
+                    <td class="product"><%= products[i].month %></td>
+                    <td class="product"><%= products[i].totalRevenue %></td>
                 </tr>
             <% } %>
         </table>
