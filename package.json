@@ -25,7 +25,7 @@
   "homepage": "https://github.com/B0nusduck-s-goup-projects/cloud-march-2023#readme",
   "description": "",
   "scripts": {
-  "start": "some command to be run",
+  "start": "node app.js",
   "test": "(eslint lib || true) && jest"
   }
 }
