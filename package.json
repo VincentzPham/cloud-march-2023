@@ -23,5 +23,9 @@
     "url": "https://github.com/B0nusduck-s-goup-projects/cloud-march-2023/issues"
   },
   "homepage": "https://github.com/B0nusduck-s-goup-projects/cloud-march-2023#readme",
-  "description": ""
+  "description": "",
+  "scripts": {
+  "start": "some command to be run", // you need to add this line
+  "test": "(eslint lib || true) && jest"
+  }
 }
