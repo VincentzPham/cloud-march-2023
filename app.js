@@ -22,20 +22,6 @@ MongoClient.connect(connectionString,{useUnifiedTopology: true})
         app.use(express.static('views'));
 
         app.use(bodyParser.json());
-
-        //search function, still not working
-        //var searchQuery=null;
-
-        /*app.post('/search', function(req, res){ 
-            searchQuery = req.body.searchQuery;
-            db.collection('products').find().toArray()
-                .then(results => {
-
-                    console.log(results)
-                    res.render('index.ejs', { products: results })
-                })
-                .catch(/* ... *//*)
-        });*/
         
         app.get('/', (req, res) => {
             db.collection('products').find().toArray()
